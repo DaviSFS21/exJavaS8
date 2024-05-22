@@ -2,6 +2,7 @@ package application;
 
 import entities.Employee;
 import entities.Rectangle;
+import entities.Student;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -34,22 +35,42 @@ public class Main {
                 break;
             case 2:
                 Employee y;
-
                 y = new Employee();
 
                 System.out.println("Enter the name, the gross salary and tax of the employee: ");
-                y.Name = sc.next();
-                y.GrossSalary = sc.nextDouble();
-                y.Tax = sc.nextDouble();
+                y.name = sc.next();
+                y.grossSalary = sc.nextDouble();
+                y.tax = sc.nextDouble();
 
-                System.out.printf("Employee: %s, $ %.2f%n", y.Name, y.NetSalary());
+                System.out.printf("Employee: %s, $ %.2f%n", y.name, y.NetSalary());
 
                 System.out.println("Enter the salary increase percentage: ");
                 y.percentage = sc.nextDouble();
 
-                System.out.printf("Updated data: %s, $ %.2f%n", y.Name, y.IncreaseSalary());
+                System.out.printf("Updated data: %s, $ %.2f%n", y.name, y.IncreaseSalary());
+                break;
             case 3:
+                Student z;
+                z = new Student();
 
+                System.out.println("Enter the name of the student: ");
+                z.name = sc.next();
+                System.out.println("Enter the first grade of the student: ");
+                double grade1 = sc.nextDouble();
+                System.out.println("Enter the second grade of the student: ");
+                double grade2 = sc.nextDouble();
+                System.out.println("Enter the third grade of the student: ");
+                double grade3 = sc.nextDouble();
+
+                System.out.printf("Final grade = %.2f", z.finalGrade());
+
+                if (z.finalGrade() >= 6) {
+                    System.out.println("Pass");
+                } else {
+                    System.out.println("Failed");
+                    System.out.printf("Missing = %.2f", 6 - z.finalGrade());
+                }
+                break;
         }
     }
 }
